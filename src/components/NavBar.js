@@ -1,64 +1,76 @@
 import React from 'react';
+import NavBar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import CartWidget from './CartWidget';
+import { NavDropdown } from 'react-bootstrap';
 
-function NavBar() {
-    // const styleNav = {
-    //     backgroundColor: '#e3f2fd'
-    // }
+import logo from '../logo.png';
+// import Common from './Common';
+// const Componentes = {
+//     Circulo1: (props) => (<h1>{props.id}</h1>),
+//     Circulo2: (props) => (<h1>{props.id}</h1>),
+//     Circulo3: (props) => (<h1>{props.id}</h1>)
+// }
+
+// const FuncionFlecha = () => {
+//     return (
+//         <h1>HOLA</h1>
+//     )
+// }
+function NavBarComponent() {
+    // console.log(props)
+    // const { id: value, ejemplo: titulo } = props
+    // const centerText = { textAlign: 'center' }
+    // const brand = "chiara luna"
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-                <a className="navbar-brand" href="/">CHIARA LUNA</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/">HOME</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/">NEW IN</a>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                SHOP
-                            </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="/">BÁSICOS</a></li>
-                                <li><a className="dropdown-item" href="/">BLUSAS Y TOPS</a></li>
-                                {/* <li><hr className="dropdown-divider"></li> */}
-                                <li><a className="dropdown-item" href="/">BLAZERS Y ABRIGOS</a></li>
-                                <li><a className="dropdown-item" href="/">COMFY SETS</a></li>
-                                <li><a className="dropdown-item" href="/">PANTALONES</a></li>
-                                <li><a className="dropdown-item" href="/">SHORTS Y FALDAS</a></li>
-                                <li><a className="dropdown-item" href="/">CONJUNTOS Y VESTIDOS</a></li>
-                                <li><a className="dropdown-item" href="/">TRAJES DE BAÑO</a></li>
-                                <li><a className="dropdown-item" href="/">COMPLEMENTOS</a></li>
-                            </ul>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled">ULTIMAS EN STOCK</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/">SALE</a>
-                        </li>
-                        {/* <li className="nav-item">
-                            <a className="nav-link" href="/">CHIARA LUNA</a>
-                        </li> */}
-                    </ul>
-                    <form className="d-flex">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                        <button class ="btn btn-outline-success" type ="submit">Search</button>
-                    </form>
-                    <div>
-                        <button className ="btn btn-dark" type ="button">LOGIN</button>
-                    </div>
-                    
-                </div>
-            </div>
-        </nav>
+        // <nav>
+        //     <FuncionFlecha/>
+        //     <Componentes.Circulo1 id="ejemplo"/>
+        //     <Componentes.Circulo2 id="ejemplo2"/>
+        //     <Componentes.Circulo3 id="ejemplo3"/>
+        //     <div>{titulo}</div>
+        //     <div>{value}</div>
+        // </nav>
+        <div>
+            <NavBar variant="light">
+                <Container>
+                    <NavBar.Brand href="#home">
+                        <img
+                            src={logo}
+                            width="300"
+                            // height="30"
+                            // className="d-inline-block align-top"
+                            alt="React Bootstrap logo"
+                        />
+                    </NavBar.Brand>
+                    <NavBar.Toggle aria-controls="basic-navbar-nav" />
+                    <NavBar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="#home">HOME</Nav.Link>
+                            <Nav.Link href="#newin">NEW IN</Nav.Link>
+                            <NavDropdown title="SHOP" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">BÁSICOS</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">BLUSAS Y TOPS</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">BLAZERS Y ABRIGOS</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action/3.4">COMFY SETS</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">PANTALONES</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">SHORTS Y FALDAS</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">CONJUNTOS Y VESTIDOS</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">TRAJES DE BAÑO</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">COMPLEMENTOS</NavDropdown.Item>
+                            </NavDropdown>
+                            <Nav.Link href="#ultimas">ULTIMAS EN STOCK</Nav.Link>
+                            <Nav.Link href="#sale">SALE</Nav.Link>
+                            <Nav.Link href="#cart" className="shopping-cart"><CartWidget></CartWidget></Nav.Link>
+                        </Nav>
+                    </NavBar.Collapse>
+                </Container>
+            </NavBar>
+        </div>
 
     )
 }
 
-export default NavBar;
+export default NavBarComponent;
