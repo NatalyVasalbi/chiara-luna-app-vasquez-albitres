@@ -1,7 +1,7 @@
 // TitleLabel
 // ButtonSubmit
 const Common={
-    ButtonSubmit: ()=>(<button>SUBMIT</button>),
+    ButtonSubmit: ({click})=>(<button onClick={click}>SUBMIT</button>),
     TitleLabel: ({text})=>(<p>{text}</p>)
 }
 export default Common;

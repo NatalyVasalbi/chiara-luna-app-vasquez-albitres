@@ -1,4 +1,5 @@
 import React from 'react';
+// import React,{useState, useEffect} from 'react';
 import NavBar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -18,11 +19,22 @@ import logo from '../logo.png';
 //         <h1>HOLA</h1>
 //     )
 // }
-function NavBarComponent() {
+function NavBarComponent(props) {
+    // console.log(props.children[1])
     // console.log(props)
     // const { id: value, ejemplo: titulo } = props
     // const centerText = { textAlign: 'center' }
     // const brand = "chiara luna"
+
+    // state function based
+    // const[panchita, setPanchita]=useState("ESTADO")
+    // const handleClick=()=>{
+    //     setPanchita("CAMBIÉ")
+    // }
+    // const[state, setState]=useState("NATALY")
+    // useEffect(()=>{
+    //     setState("useEffect")
+    // },[])
     return (
         // <nav>
         //     <FuncionFlecha/>
@@ -47,6 +59,9 @@ function NavBarComponent() {
                     <NavBar.Toggle aria-controls="basic-navbar-nav" />
                     <NavBar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
+                            {/* <Nav.Link href="#home">{panchita}</Nav.Link>
+                            <Nav.Link href="#home2">{state}</Nav.Link> */}
+                            {/* <Nav.Link href="#home"><button onClick={handleClick}>CLICK</button></Nav.Link> */}
                             <Nav.Link href="#home">HOME</Nav.Link>
                             <Nav.Link href="#newin">NEW IN</Nav.Link>
                             <NavDropdown title="SHOP" id="basic-nav-dropdown">

@@ -1,11 +1,18 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Common from "./Common";
+import ItemCount from "./ItemCount";
 
 // import React from 'react';
-function ItemListContainer(props){
-    const {greeting: value}=props
+function ItemListContainer({greeting}){
+
+    const[value, setValue]=useState(0);
+
     return (
-        <div>{value}</div>
+        <div>
+            <p>{greeting}</p>
+            <ItemCount stock="5" initial="0"></ItemCount>
+        </div>
+        
     )
 }
 
