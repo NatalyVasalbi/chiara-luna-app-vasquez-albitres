@@ -24,9 +24,9 @@ function App() {
         <div>3</div>
         <div>4</div>
       </Shell> */}
-      <ItemListContainer greeting="hola"></ItemListContainer>
+      <ItemListContainer greeting="Ofertas del mes"></ItemListContainer>
       {/* <ClassButtons initialValue={3}></ClassButtons> */}
-      {/* <ItemCount initialValue={1}></ItemCount> */}
+      {/* <ItemCount initialValue={1}></ItemCount> */}      
     </React.Fragment>
   );
 }
