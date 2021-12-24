@@ -23,11 +23,16 @@ const Item = {
         </Card>
     ),
     Item2: (props) => (
-        <div>
-            <p>{props.imagen}</p>
-            <h1>{props.titulo}</h1>
-            <p>{props.descr}</p>
-        </div>
+        <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={props.picture} />
+            <Card.Body>
+                <Card.Title>{props.title}</Card.Title>
+                <Card.Text>Precio $
+                    {props.price}
+                </Card.Text>
+                <Button variant="primary">Ver detalle del producto</Button>
+            </Card.Body>
+        </Card>
     )
 }
 export default Item;
