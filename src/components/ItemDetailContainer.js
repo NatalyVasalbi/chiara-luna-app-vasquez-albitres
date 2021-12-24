@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import CounterButton from "./CounterButton"
+import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer=()=>{
 
@@ -15,17 +15,10 @@ const ItemDetailContainer=()=>{
     }
 
 
-    const Modal=()=>{
-        return(
-            <div>
-                <h1>Se alcanzó el límite permitido</h1>
-            </div>
-        )
-    }
-
     useEffect(()=>{
         db()
     },[])
+
 
     const db = async()=>{
         const call= await fetch(
@@ -35,6 +28,7 @@ const ItemDetailContainer=()=>{
         if(call.ok){
             const response=await call.json();
             setItem(response.results.find(item => item.price > 5000));
+            console.log(item)
         }else{
             call.catch((err)=>{
                 throw new Error("Algo salió mal", err);
@@ -42,18 +36,10 @@ const ItemDetailContainer=()=>{
         }
     }
 
+
     return(
-        <div>
-            {item.length?? (
-                <div>
-                    <p>{item.title}</p>
-                    <img src={item.thumbnail} style={{width:250}}></img>
-                </div>
-            )}
-            <CounterButton initialValue={value} restar={resta} sumar={suma}></CounterButton>
-            {showMessageStock && <Modal/>}
-        </div>
-    );
+        <ItemDetail item={item} initialValue={value} restar={resta} sumar={suma} stock={showMessageStock}></ItemDetail>
+    )
 }
 
 export default ItemDetailContainer;

@@ -1,5 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
-import Common from "./Common";
+import React, { useState, useEffect } from "react";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 
