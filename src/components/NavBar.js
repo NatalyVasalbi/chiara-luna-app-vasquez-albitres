@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import CartWidget from './CartWidget';
 import { NavDropdown } from 'react-bootstrap';
-
+import { NavLink } from 'react-router-dom';
 import logo from '../logo.png';
 // import Common from './Common';
 // const Componentes = {
@@ -47,37 +47,39 @@ function NavBarComponent(props) {
         <div>
             <NavBar variant="light">
                 <Container>
-                    <NavBar.Brand href="#home">
-                        <img
+                    <NavBar.Brand>                        
+                        <NavLink to={`/`}><img
                             src={logo}
                             width="300"
                             // height="30"
                             // className="d-inline-block align-top"
                             alt="React Bootstrap logo"
-                        />
+                        /></NavLink>
                     </NavBar.Brand>
+
                     <NavBar.Toggle aria-controls="basic-navbar-nav" />
                     <NavBar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             {/* <Nav.Link href="#home">{panchita}</Nav.Link>
                             <Nav.Link href="#home2">{state}</Nav.Link> */}
                             {/* <Nav.Link href="#home"><button onClick={handleClick}>CLICK</button></Nav.Link> */}
-                            <Nav.Link href="#home">HOME</Nav.Link>
-                            <Nav.Link href="#newin">NEW IN</Nav.Link>
+
+                            <NavLink className="nav-link" to={`/nuevo`}>NEW IN</NavLink>
+                            <NavLink className="nav-link" to={`/`}>HOME</NavLink>
                             <NavDropdown title="SHOP" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">BÁSICOS</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">BLUSAS Y TOPS</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">BLAZERS Y ABRIGOS</NavDropdown.Item>
+                                <NavLink className="dropdown-item" to={`/basicos`}>BÁSICOS</NavLink>
+                                <NavLink className="dropdown-item" to={`/blusas`}>BLUSAS Y TOPS</NavLink>
+                                <NavLink className="dropdown-item" to={`/blazer`}>BLAZERS Y ABRIGOS</NavLink>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">COMFY SETS</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.4">PANTALONES</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.4">SHORTS Y FALDAS</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.4">CONJUNTOS Y VESTIDOS</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.4">TRAJES DE BAÑO</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.4">COMPLEMENTOS</NavDropdown.Item>
+                                <NavLink className="dropdown-item" to={`/comfy`}>COMFY SETS</NavLink>
+                                <NavLink className="dropdown-item" to={`/pantalon`}>PANTALONES</NavLink>
+                                <NavLink className="dropdown-item" to={`/falda`}>SHORTS Y FALDAS</NavLink>
+                                <NavLink className="dropdown-item" to={`/vestido`}>CONJUNTOS Y VESTIDOS</NavLink>
+                                <NavLink className="dropdown-item" to={`/bikini`}>TRAJES DE BAÑO</NavLink>
+                                <NavLink className="dropdown-item" to={`/joyas`}>COMPLEMENTOS</NavLink>
                             </NavDropdown>
-                            <Nav.Link href="#ultimas">ULTIMAS EN STOCK</Nav.Link>
-                            <Nav.Link href="#sale">SALE</Nav.Link>
+                            <NavLink className="nav-link" to={`/ultimas`}>ULTIMAS EN STOCK</NavLink>
+                            <NavLink className="nav-link" to={`/sale`}>SALE</NavLink>
                             <Nav.Link href="#cart" className="shopping-cart"><CartWidget></CartWidget></Nav.Link>
                         </Nav>
                     </NavBar.Collapse>

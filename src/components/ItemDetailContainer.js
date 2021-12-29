@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from "react"
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer=()=>{
+
+    const {id}=useParams()
+    const category=""
 
     const [item, setItem]=useState({})
     const [value, setValue]=useState(0);
@@ -17,17 +21,19 @@ const ItemDetailContainer=()=>{
 
     useEffect(()=>{
         db()
-    },[])
+        console.log("El id es: "+id)
+    },[id])
 
 
     const db = async()=>{
         const call= await fetch(
-            "https://api.mercadolibre.com/sites/MLA/search?q=zapatillas"
+            `https://api.mercadolibre.com/sites/MLA/search?q=blusas`
         );
 
         if(call.ok){
             const response=await call.json();
-            setItem(response.results.find(item => item.price > 5000));
+            console.log(response.results)
+            setItem(response.results.find(item => item.id = id));
             console.log(item)
         }else{
             call.catch((err)=>{

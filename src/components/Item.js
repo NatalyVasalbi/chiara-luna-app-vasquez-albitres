@@ -1,4 +1,6 @@
 import { Card, Button } from "react-bootstrap";
+import { NavLink } from 'react-router-dom';
+
 const Item = {
     Item: (props) => (
         // <div>
@@ -30,7 +32,8 @@ const Item = {
                 <Card.Text>Precio $
                     {props.price}
                 </Card.Text>
-                <Button variant="primary">Ver detalle del producto</Button>
+                <div><NavLink to={`/item/${props.id}`}>Ver detalle del producto</NavLink></div>
+                {/* <Button variant="primary">Ver detalle del producto<NavLink to={`/${props.id}`}></NavLink></Button> */}
             </Card.Body>
         </Card>
     )
