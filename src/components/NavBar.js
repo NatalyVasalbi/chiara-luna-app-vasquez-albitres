@@ -80,7 +80,7 @@ function NavBarComponent(props) {
                             </NavDropdown>
                             <NavLink className="nav-link" to={`/ultimas`}>ULTIMAS EN STOCK</NavLink>
                             <NavLink className="nav-link" to={`/sale`}>SALE</NavLink>
-                            <Nav.Link href="#cart" className="shopping-cart"><CartWidget></CartWidget></Nav.Link>
+                            <Nav.Link to={`/cart`} className="shopping-cart"><CartWidget></CartWidget></Nav.Link>
                         </Nav>
                     </NavBar.Collapse>
                 </Container>

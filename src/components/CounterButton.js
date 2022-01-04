@@ -1,12 +1,15 @@
 import React from 'react'
+import { Button, ButtonGroup } from 'react-bootstrap';
 
-const CounterButton=({initialValue=0, stock=5, restar, sumar})=>{
+const CounterButton=({initialValue=0, stockItem, restar, sumar, onAdd})=>{
     return(
-        <div className="buttons-container">
-            <button className="button-add" onClick={()=>sumar(stock, initialValue)}>Sumar</button>
-            <p className="value">{initialValue}</p>
-            <button onClick={restar} className="button-sub">Restar</button>
-        </div>
+        <ButtonGroup>
+            <Button onClick={restar} variant="light">-</Button>
+            <p className="value" style={{margin: 10}}> {' '+initialValue+' '}</p>
+            <Button onClick={()=>sumar(stockItem, initialValue)} variant="light">+</Button>
+            {' '}
+            <Button onClick={onAdd} variant="outline-primary">Añadir al carrito</Button>
+        </ButtonGroup>
     )
 };
 export default CounterButton;

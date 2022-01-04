@@ -1,7 +1,11 @@
 import ShoppingCart from '../shopping-cart.png';
+import Cart from './Cart';
 function CartWidget (){
+    const showShoppingCart=()=>{
+        return <Cart></Cart>;
+    }
     return (
-        <div>
+        <div onClick={showShoppingCart}>
             <img src={ShoppingCart} alt="imagen de carrito" width="25"
         height="25"
         />

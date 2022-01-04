@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 
 const ItemCount=({stock, initialValue=0})=>{
+    
     const [value, setValue] = useState(initialValue);
     const handlerAdd=()=>{
         if(value<stock) setValue((prev)=> prev+1);

@@ -1,5 +1,5 @@
 import React from "react";
-import Common from "./Common";
+// import Common from "./Common";
 import Item from "./Item"
 
 function ItemList({estado, click}){

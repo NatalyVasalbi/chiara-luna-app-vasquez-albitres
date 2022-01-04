@@ -6,19 +6,19 @@ import NavBarComponent from './components/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import Cart from './components/Cart';
 // import Shell from './components/Shell';
 
 function App() {
-  const Home = () => <div>HOME</div>
 
   return (
     <BrowserRouter>
       <NavBarComponent />
       <Routes>
-        <Route exact path="/" element={<ItemListContainer/>}></Route>
-        <Route exact path="/:category" element={<ItemListContainer/>}></Route>
-        <Route exact path="/item/:id" element={<ItemDetailContainer/>}></Route>
-        <Route exact path="/home" element={<Home/>}></Route>
+        <Route path="/" element={<ItemListContainer/>}></Route>
+        <Route path="/:category" element={<ItemListContainer/>}></Route>
+        <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
+        <Route path="/cart" element={<Cart/>}></Route>
       </Routes>
     </BrowserRouter>
     // <React.Fragment>

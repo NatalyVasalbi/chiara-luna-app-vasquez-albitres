@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 
 // import React from 'react';
