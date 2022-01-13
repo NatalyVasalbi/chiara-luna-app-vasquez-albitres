@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
+import CartContext from "../context/CartContext";
 
 // import React from 'react';
 function ItemListContainer({props}){
@@ -8,10 +9,10 @@ function ItemListContainer({props}){
     const {category} = useParams() || ""
     const[items, setItems]=useState([]);
 
-    // const products=[
-    //     {id: 1, title: "Producto 1", description:"breve", price: 3.5, pictureUrl: "https://s3.amazonaws.com/imagenes-sellers-mercado-ripley/2021/09/03214848/Disen%CC%83o-sin-ti%CC%81tulo-101.jpg"},
-    //     {id: 2, title: "Producto 2", description:"desc", price: 3.5, pictureUrl: "https://s3.amazonaws.com/imagenes-sellers-mercado-ripley/2021/09/03214848/Disen%CC%83o-sin-ti%CC%81tulo-101.jpg"}
-    // ]
+    // CONTEXT
+    //  const [state, setState]= useState([{name: "test"}])
+    //  const value=useContext(CartContext)
+    //  console.log(value.checkItem())
 
     useEffect(() => {
         console.log("me monté")
@@ -60,7 +61,7 @@ function ItemListContainer({props}){
             :
             <p>Cargando...</p>
             }
-            
+            {/* <p className={value} ></p> */}
         </div>
         
     )

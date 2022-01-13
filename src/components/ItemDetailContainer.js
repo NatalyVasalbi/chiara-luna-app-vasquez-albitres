@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useContext} from "react"
 import { useParams } from "react-router-dom";
+import CartContext from "../context/CartContext";
 import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer=()=>{
@@ -11,13 +12,19 @@ const ItemDetailContainer=()=>{
     const [showMessageStock, setShowMessageStock]=useState(false);
 
 
+    // CONTEXT
+    const [state, setState]= useState([{name: "test"}])
+    const productAdded=useContext(CartContext)
+    console.log(productAdded.checkItem())
+    //
+
     const resta=()=> setValue((prev)=>prev-1);
     const suma=(stockItem, value)=>{
         if(value<stockItem) setValue((prev)=>prev+1);
         else setShowMessageStock((prev)=> !prev);
     }
 
-    const onAdd=()=>{
+    const onAdd=(productoToAdd)=>{
         if(value>0) alert('Se ha añadido a tu carrito :p (En proceso...)')
         else alert('La cantidad debe ser mayor a 0')
     }
@@ -47,7 +54,7 @@ const ItemDetailContainer=()=>{
 
 
     return(
-        <ItemDetail item={item} initialValue={value} restar={resta} sumar={suma} message={showMessageStock} onAdd={onAdd} ></ItemDetail>
+        <ItemDetail item={item} initialValue={value} restar={resta} sumar={suma} message={showMessageStock}></ItemDetail>
     )
 }
 

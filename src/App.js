@@ -8,26 +8,34 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 // import Shell from './components/Shell';
+import CartContext from './context/CartContext';
+import { useState } from 'react';
+import CustomContext from './context/CustomContext';
 
 function App() {
 
+  const [state, setState] = useState("dark")
+
+  window.addEventListener('evento', (e) => console.log(e))
   return (
-    <BrowserRouter>
-      <NavBarComponent />
-      <Routes>
-        <Route path="/" element={<ItemListContainer/>}></Route>
-        <Route path="/:category" element={<ItemListContainer/>}></Route>
-        <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
-        <Route path="/cart" element={<Cart/>}></Route>
-      </Routes>
-    </BrowserRouter>
-    // <React.Fragment>
-    //   <NavBarComponent/>
-    //   {/* <ItemListContainer greeting="Ofertas del mes"></ItemListContainer> */}
-    //   <ItemDetailContainer></ItemDetailContainer>
-    //   {/* <ClassButtons initialValue={3}></ClassButtons> */}
-    //   {/* <ItemCount initialValue={1}></ItemCount> */}      
-    // </React.Fragment>
+    // <CartContext.Provider value={state}>
+    //   <ItemListContainer></ItemListContainer>
+    // </CartContext.Provider>
+
+    //  <CustomContext>
+    //   <ItemListContainer></ItemListContainer>
+    // </CustomContext>
+    <CustomContext>
+      <BrowserRouter>
+        <NavBarComponent />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />}></Route>
+          <Route path="/:category" element={<ItemListContainer />}></Route>
+          <Route path="/item/:id" element={<ItemDetailContainer />}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
+        </Routes>
+      </BrowserRouter>
+      </CustomContext>
   );
 }
 
